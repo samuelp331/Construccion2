@@ -48,7 +48,7 @@ CREATE TABLE `history` (
   `procedure_pet` text NOT NULL,
   `medicine` text NOT NULL,
   `dosis` varchar(250) NOT NULL,
-  `id_order` bigint NOT NULL,
+  `order_id` bigint NOT NULL,
   `vaccination_record` text NOT NULL,
   `detail` text NOT NULL,
   `cancellation` tinyint(1) NOT NULL
@@ -171,5 +171,32 @@ ALTER TABLE `pet_order`
 --
 ALTER TABLE `rol`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-COMMIT;
 
+ --
+ --
+ --
+ALTER TABLE `bill`
+  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
+  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
+  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
+
+--
+--
+--
+ALTER TABLE `history`
+  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
+
+--
+--
+--
+ALTER TABLE `pet`
+  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`);
+
+--
+--
+--
+ALTER TABLE `pet_order`
+  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
+  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
+  ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `person`(`id`),
+COMMIT;
