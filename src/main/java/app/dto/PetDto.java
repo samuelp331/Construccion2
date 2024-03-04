@@ -1,41 +1,66 @@
 package app.dto;
-
-import app.models.Person;
 import app.models.Pet;
 
 public class PetDto {
 	
-	private int id;
+	private long id;
 	private String name;
 	private int age;
-	private long idNumber;
 	private String species;
-	private String race;
+	private String breed;
 	private String characteristics;
 	private double weight;
-	private Person owner;
+	private int ownerId;
+
 	
-	public PetDto(String name, int age, long idNumber, String species, String race, String characteristics,double weight, Person owner) {
+
+	public PetDto(long id, String name, int age, String species, String breed, String characteristics, double weight,
+			int ownerId) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.age = age;
-		this.idNumber = idNumber;
 		this.species = species;
-		this.race = race;
+		this.breed = breed;
 		this.characteristics = characteristics;
 		this.weight = weight;
-		this.owner = owner;
+		this.ownerId = ownerId;
 	}
+
 	public PetDto(Pet pet) {
 		this.name = pet.getName();
 		this.age = pet.getAge();
-		this.idNumber = pet.getIdNumber();
+		this.ownerId = pet.getOwnerId();
 		this.species = pet.getSpecies();
-		this.race = pet.getRace();
+		this.breed = pet.getBreed();
 		this.characteristics = pet.getCharacteristics();
 		this.weight = pet.getWeight();
-		this.owner = pet.getOwner();
-	}
+	}	
 	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public String getBreed() {
+		return breed;
+	}
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -48,24 +73,14 @@ public class PetDto {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public long getIdNumber() {
-		return idNumber;
-	}
-	public void setIdNumber(long idNumber) {
-		this.idNumber = idNumber;
-	}
+
 	public String getSpecies() {
 		return species;
 	}
 	public void setSpecies(String species) {
 		this.species = species;
 	}
-	public String getRace() {
-		return race;
-	}
-	public void setRace(String race) {
-		this.race = race;
-	}
+
 	public String getCharacteristics() {
 		return characteristics;
 	}
@@ -77,12 +92,6 @@ public class PetDto {
 	}
 	public void setWeight(double weight) {
 		this.weight = weight;
-	}
-	public Person getOwner() {
-		return owner;
-	}
-	public void setOwner(Person owner) {
-		this.owner = owner;
 	}
 	
 	

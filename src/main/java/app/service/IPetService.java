@@ -1,5 +1,7 @@
 package app.service;
 
-public interface IPetService {
+import app.dto.PetDto;
 
+public interface IPetService {
+	public void createPet(PetDto petDto) throws Exception;
 }

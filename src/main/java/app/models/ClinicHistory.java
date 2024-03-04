@@ -10,7 +10,7 @@ public class ClinicHistory {
 	private String symptoms;
 	private String procedures;
 	private String medicines;
-	private Order idOrder;
+	private int orderId;
 	private String vaccionationHistory;
 	private String allergies;
 	private String detailsProcedures;
@@ -55,12 +55,15 @@ public ClinicHistory() {
 	public void setMedicines(String medicines) {
 		this.medicines = medicines;
 	}
-	public Order getIdorder() {
-		return idOrder;
+
+	public long getOrderId() {
+		return orderId;
 	}
-	public void setIdorder(Order idorder) {
-		this.idOrder = idorder;
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
+
 	public String getVaccionationHistory() {
 		return vaccionationHistory;
 	}

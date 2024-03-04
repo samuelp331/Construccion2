@@ -3,10 +3,9 @@ package app.models;
 import java.sql.Date;
 
 public class Order {
-	private long orderId;
-	private Pet idPet;
-	private Person idOwner;
-	private Person person;
+	private int orderId;
+	private int petId;
+	private int ownerId;
 	private String nameMedications;
 	private Date generationDate;
 	
@@ -17,27 +16,27 @@ public class Order {
 	public long getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(long orderId) {
+
+	public int getPetId() {
+		return petId;
+	}
+
+	public void setPetId(int petId) {
+		this.petId = petId;
+	}
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
-	public Pet getIdPet() {
-		return idPet;
-	}
-	public void setIdPet(Pet idPet) {
-		this.idPet = idPet;
-	}
-	public Person getIdOwner() {
-		return idOwner;
-	}
-	public void setIdOwner(Person idOwner) {
-		this.idOwner = idOwner;
-	}
-	public Person getPerson() {
-		return person;
-	}
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+
 	public String getNameMedications() {
 		return nameMedications;
 	}

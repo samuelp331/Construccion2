@@ -3,9 +3,9 @@ package app.models;
 import java.sql.Date;
 
 public class Bill {
-	private long invoiceId;
-	private Pet idPet;
-	private Person idOwner;
+	private int invoiceId;
+	private int petId;
+	private long ownerId;
 	private String productName;
 	private double price;
 	private int amount;
@@ -18,21 +18,27 @@ public class Bill {
 	public long getInvoiceId() {
 		return invoiceId;
 	}
-	public void setInvoiceId(long invoiceId) {
+
+	public int getPetId() {
+		return petId;
+	}
+
+	public void setPetId(int petId) {
+		this.petId = petId;
+	}
+
+	public void setInvoiceId(int invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-	public Pet getIdPet() {
-		return idPet;
+
+	public long getOwnerId() {
+		return ownerId;
 	}
-	public void setIdPet(Pet idPet) {
-		this.idPet = idPet;
+
+	public void setOwnerId(long ownerId) {
+		this.ownerId = ownerId;
 	}
-	public Person getIdOwner() {
-		return idOwner;
-	}
-	public void setIdOwner(Person idOwner) {
-		this.idOwner = idOwner;
-	}
+
 	public String getProductName() {
 		return productName;
 	}

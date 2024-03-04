@@ -4,25 +4,27 @@ import app.models.Person;
 import app.models.Role;
 
 public class PersonDto {
+
 	private long id;
 	private int age;
-	private Role role;
+	private int roleId;
 	private String fullName;
 	private String username;
 	private String password;
 	
-	
-	public PersonDto(int age, Role role, String fullName, String username, String password) {
+	public PersonDto(long id, int age, int roleId, String fullName, String username, String password) {
+		super();
+		this.id = id;
 		this.age = age;
-		this.role = role;
+		this.roleId = roleId;
 		this.fullName = fullName;
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public PersonDto(Person person) {
 		this.age = person.getAge();
-		this.role = person.getRole();
+		this.roleId = person.getRoleId();
 		this.fullName = person.getFullName();
 		this.username = person.getUsername();
 		this.password = person.getPassword();
@@ -40,12 +42,15 @@ public class PersonDto {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public Role getRole() {
-		return role;
+
+	public int getRoleId() {
+		return roleId;
 	}
-	public void setRole(Role role) {
-		this.role = role;
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
+
 	public String getFullName() {
 		return fullName;
 	}

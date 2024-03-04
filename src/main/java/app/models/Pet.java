@@ -2,18 +2,26 @@ package app.models;
 
 public class Pet {
 	
-	private int id;
+	private long id;
 	private String name;
 	private int age;
-	private long idNumber;
 	private String species;
-	private String race;
+	private String breed;
 	private String characteristics;
 	private double weight;
-	private Person owner;
+	private int ownerId;
+
 	
 	
-	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -30,13 +38,6 @@ public class Pet {
 		this.age = age;
 	}
 	
-	public long getIdNumber() {
-		return idNumber;
-	}
-	
-	public void setIdNumber(long idNumber) {
-		this.idNumber = idNumber;
-	}
 	
 	public String getSpecies() {
 		return species;
@@ -45,14 +46,16 @@ public class Pet {
 	public void setSpecies(String species) {
 		this.species = species;
 	}
-	public String getRace() {
-		return race;
-	}
 	
-	public void setRace(String race) {
-		this.race = race;
+
+	public String getBreed() {
+		return breed;
 	}
-	
+
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+
 	public String getCharacteristics() {
 		return characteristics;
 	}
@@ -68,13 +71,15 @@ public class Pet {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	
-	public Person getOwner() {
-		return owner;
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
 	}
 	
-	public void setOwner(Person owner) {
-		this.owner = owner;
-	}
+
 
 }
