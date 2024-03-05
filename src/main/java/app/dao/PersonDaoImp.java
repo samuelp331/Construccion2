@@ -34,11 +34,5 @@ public class PersonDaoImp implements PersonDao {
 		return null;
 	}
 
-	@Override
-	public PersonDto findRolById(PersonDto personDto) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }
