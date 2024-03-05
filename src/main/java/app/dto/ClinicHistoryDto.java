@@ -1,9 +1,10 @@
-package app.models;
+package app.dto;
 
 import java.sql.Date;
 
-public class ClinicHistory {
-	
+import app.models.ClinicHistory;
+
+public class ClinicHistoryDto {
 	private Date registerDate;
 	private long veterinarianId;
 	private String reasonForConsultation;
@@ -15,8 +16,32 @@ public class ClinicHistory {
 	private String allergies;
 	private String detailsProcedures;
 
-	public ClinicHistory() {
-		this.registerDate=new Date(System.currentTimeMillis());
+	public ClinicHistoryDto(Date registerDate, long veterinarianId, String reasonForConsultation, String symptoms,
+			String procedures, String medicines, int orderId, String vaccionationHistory, String allergies,
+			String detailsProcedures) {
+		super();
+		this.registerDate = registerDate;
+		this.veterinarianId = veterinarianId;
+		this.reasonForConsultation = reasonForConsultation;
+		this.symptoms = symptoms;
+		this.procedures = procedures;
+		this.medicines = medicines;
+		this.orderId = orderId;
+		this.vaccionationHistory = vaccionationHistory;
+		this.allergies = allergies;
+		this.detailsProcedures = detailsProcedures;
+	}
+	
+	public ClinicHistoryDto(ClinicHistory clinichistory){
+		this.registerDate = clinichistory.getRegisterDate();
+		this.veterinarianId = clinichistory.getVeterinarianId();
+		this.reasonForConsultation = clinichistory.getReasonForConsultation();
+		this.symptoms = clinichistory.getSymptoms();
+		this.procedures = clinichistory.getProcedures();
+		this.medicines = clinichistory.getMedicines();
+		this.orderId = clinichistory.getOrderId();
+		this.allergies = clinichistory.getAllergies();
+		this.detailsProcedures = clinichistory.getDetailsProcedures();
 	}
 	
 	public Date getRegisterDate() {
@@ -59,7 +84,7 @@ public class ClinicHistory {
 		this.medicines = medicines;
 	}
 
-	public int getOrderId() {
+	public long getOrderId() {
 		return orderId;
 	}
 
@@ -85,6 +110,5 @@ public class ClinicHistory {
 	public void setDetailsProcedures(String detailsProcedures) {
 		this.detailsProcedures = detailsProcedures;
 	}
-
 
 }
