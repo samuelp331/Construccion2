@@ -48,11 +48,7 @@ CREATE TABLE `history` (
   `procedure_pet` text NOT NULL,
   `medicine` text NOT NULL,
   `dosis` varchar(250) NOT NULL,
-<<<<<<< HEAD
-  `order_id` bigint NOT NULL,
-=======
   `id_order` int NOT NULL,
->>>>>>> d773277117fcab67f7cd5ea87e94ffb3cea6d7b6
   `vaccination_record` text NOT NULL,
   `detail` text NOT NULL,
   `cancellation` tinyint(1) NOT NULL
@@ -65,11 +61,7 @@ CREATE TABLE `history` (
 --
 
 CREATE TABLE `person` (
-<<<<<<< HEAD
-  `id` bigint NOT NULL,
-=======
   `id` int NOT NULL,
->>>>>>> d773277117fcab67f7cd5ea87e94ffb3cea6d7b6
   `name` varchar(50) NOT NULL,
   `age` int NOT NULL,
   `id_rol` int NOT NULL
@@ -83,11 +75,7 @@ CREATE TABLE `person` (
 
 CREATE TABLE `pet` (
   `id` int NOT NULL,
-<<<<<<< HEAD
-  `name` int NOT NULL,
-=======
   `name` varchar(250) NOT NULL,
->>>>>>> d773277117fcab67f7cd5ea87e94ffb3cea6d7b6
   `owner_id` bigint NOT NULL,
   `age` int NOT NULL,
   `species` varchar(250) NOT NULL,
@@ -105,11 +93,7 @@ CREATE TABLE `pet` (
 CREATE TABLE `pet_order` (
   `id` int NOT NULL,
   `pet_id` int NOT NULL,
-<<<<<<< HEAD
-  `owner_id` bigint NOT NULL,
-=======
   `owner_id` int NOT NULL,
->>>>>>> d773277117fcab67f7cd5ea87e94ffb3cea6d7b6
   `doctor_id` int NOT NULL,
   `medicine` text NOT NULL,
   `date` date NOT NULL
@@ -187,36 +171,5 @@ ALTER TABLE `pet_order`
 --
 ALTER TABLE `rol`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-<<<<<<< HEAD
-
- --
- --
- --
-ALTER TABLE `bill`
-  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
-  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
-
---
---
---
-ALTER TABLE `history`
-  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
-
---
---
---
-ALTER TABLE `pet`
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`);
-
---
---
---
-ALTER TABLE `pet_order`
-  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
-  ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `person`(`id`),
-=======
->>>>>>> d773277117fcab67f7cd5ea87e94ffb3cea6d7b6
 COMMIT;
 
