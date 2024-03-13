@@ -11,6 +11,9 @@ public class PersonInputsValidator extends InputsValidator {
    public int ageValidator(String age) throws Exception{
 	   return super.integerValidator(age, "Ingrese edad del usuario");
    }
+   public void passwordValidator(String password) throws Exception{
+	   super.stringValidator(password, "Es clave valida");
+   }
 }
 
 
