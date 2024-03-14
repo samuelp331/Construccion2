@@ -48,7 +48,6 @@ CREATE TABLE `history` (
   `procedure_pet` text NOT NULL,
   `medicine` text NOT NULL,
   `dosis` varchar(250) NOT NULL,
-  `order_id` bigint NOT NULL,
   `id_order` int NOT NULL,
   `vaccination_history` text NOT NULL,
   `detail` text NOT NULL,

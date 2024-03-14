@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import app.validators.PersonInputsValidator;
 import app.dto.PersonDto;
+import app.service.AdminService;
 import app.service.LoginService;
 
 public class LoginController{
@@ -12,7 +13,7 @@ public class LoginController{
 	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
 	private static AdminController adminController = new AdminController();
 	private static VendorController vendorController = new VendorController();
-	private static LoginService loginService = new LibraryService();
+	private static LoginService loginService = new AdminService();
 	
 	
 	public void login() throws Exception {

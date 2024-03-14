@@ -8,7 +8,7 @@ public class PersonDto {
 	private long id;
 	private int age;
 	private int roleId;
-	private String fullName;
+	private String name;
 	private String username;
 	private String password;
 	
@@ -17,7 +17,7 @@ public class PersonDto {
 		this.id = id;
 		this.age = age;
 		this.roleId = roleId;
-		this.fullName = fullName;
+		this.name = fullName;
 		this.username = username;
 		this.password = password;
 	}
@@ -29,7 +29,7 @@ public class PersonDto {
 	public PersonDto(Person person) {
 		this.age = person.getAge();
 		this.roleId = person.getRoleId();
-		this.fullName = person.getFullName();
+		this.name = person.getFullName();
 		this.username = person.getUsername();
 		this.password = person.getPassword();
 	}
@@ -56,10 +56,10 @@ public class PersonDto {
 	}
 
 	public String getFullName() {
-		return fullName;
+		return name;
 	}
 	public void setFullName(String fullName) {
-		this.fullName = fullName;
+		this.name = fullName;
 	}
 	public String getUsername() {
 		return username;
