@@ -5,16 +5,21 @@ import java.sql.Date;
 public class Order {
 	private int orderId;
 	private int petId;
-	private int ownerId;
-	private String nameMedications;
+	private long veterinarianID;
+	private long ownerId;
+	private String medicine;
 	private Date generationDate;
 	
 	public Order() {
 		this.generationDate=new Date(System.currentTimeMillis());
 	}
-	
-	public long getOrderId() {
+
+	public int getOrderId() {
 		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
 
 	public int getPetId() {
@@ -25,29 +30,38 @@ public class Order {
 		this.petId = petId;
 	}
 
-	public int getOwnerId() {
+	public long getVeterinarianID() {
+		return veterinarianID;
+	}
+
+	public void setVeterinarianID(long veterinarianID) {
+		this.veterinarianID = veterinarianID;
+	}
+
+	public long getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int ownerId) {
+	public void setOwnerId(long ownerId) {
 		this.ownerId = ownerId;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public String getMedicine() {
+		return medicine;
 	}
 
-	public String getNameMedications() {
-		return nameMedications;
+	public void setMedicine(String medicine) {
+		this.medicine = medicine;
 	}
-	public void setNameMedications(String nameMedications) {
-		this.nameMedications = nameMedications;
-	}
+
 	public Date getGenerationDate() {
 		return generationDate;
 	}
+
 	public void setGenerationDate(Date generationDate) {
 		this.generationDate = generationDate;
 	}
+	
+	
 
 }

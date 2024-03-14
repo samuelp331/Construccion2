@@ -5,48 +5,65 @@ import java.sql.Date;
 import app.models.ClinicHistory;
 
 public class ClinicHistoryDto {
+	
 	private Date registerDate;
 	private long veterinarianId;
-	private String reasonForConsultation;
+	private String reason;
 	private String symptoms;
-	private String procedures;
+	private String procedure;
+	private String diagnostic;
 	private String medicines;
+	private String dosis;
 	private int orderId;
 	private String vaccionationHistory;
-	private String allergies;
-	private String detailsProcedures;
+	private String details;
+	private String anulation;
 
-	public ClinicHistoryDto(Date registerDate, long veterinarianId, String reasonForConsultation, String symptoms,
-			String procedures, String medicines, int orderId, String vaccionationHistory, String allergies,
-			String detailsProcedures) {
+	public ClinicHistoryDto(Date registerDate, long veterinarianId, String reason, String symptoms, String procedure,
+			String diagnostic, String medicines, String dosis, int orderId, String vaccionationHistory, String details,
+			String anulation) {
 		super();
 		this.registerDate = registerDate;
 		this.veterinarianId = veterinarianId;
-		this.reasonForConsultation = reasonForConsultation;
+		this.reason = reason;
 		this.symptoms = symptoms;
-		this.procedures = procedures;
+		this.procedure = procedure;
+		this.diagnostic = diagnostic;
 		this.medicines = medicines;
 		this.orderId = orderId;
 		this.vaccionationHistory = vaccionationHistory;
-		this.allergies = allergies;
-		this.detailsProcedures = detailsProcedures;
+		this.details = details;
+		this.anulation = anulation;
+		this.dosis = dosis;
 	}
-	
+
 	public ClinicHistoryDto(ClinicHistory clinichistory){
 		this.registerDate = clinichistory.getRegisterDate();
 		this.veterinarianId = clinichistory.getVeterinarianId();
-		this.reasonForConsultation = clinichistory.getReasonForConsultation();
+		this.reason = clinichistory.getReason();
 		this.symptoms = clinichistory.getSymptoms();
-		this.procedures = clinichistory.getProcedures();
+		this.procedure = clinichistory.getProcedure();
+		this.diagnostic = clinichistory.getMedicines();
 		this.medicines = clinichistory.getMedicines();
+		this.dosis = clinichistory.getDosis();
 		this.orderId = clinichistory.getOrderId();
-		this.allergies = clinichistory.getAllergies();
-		this.detailsProcedures = clinichistory.getDetailsProcedures();
+		this.vaccionationHistory = clinichistory.getVaccionationHistory();
+		this.details = clinichistory.getDetails();
+		this.anulation = clinichistory.getAnulation();
 	}
 	
+	public String getDosis() {
+		return dosis;
+	}
+
+	public void setDosis(String dosis) {
+		this.dosis = dosis;
+	}
+
 	public Date getRegisterDate() {
 		return registerDate;
 	}
+
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
 	}
@@ -59,32 +76,47 @@ public class ClinicHistoryDto {
 		this.veterinarianId = veterinarianId;
 	}
 
-	public String getReasonForConsultation() {
-		return reasonForConsultation;
+	public String getReason() {
+		return reason;
 	}
-	public void setReasonForConsultation(String reasonForConsultation) {
-		this.reasonForConsultation = reasonForConsultation;
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
+
 	public String getSymptoms() {
 		return symptoms;
 	}
+
 	public void setSymptoms(String symptoms) {
 		this.symptoms = symptoms;
 	}
-	public String getProcedures() {
-		return procedures;
+
+	public String getProcedure() {
+		return procedure;
 	}
-	public void setProcedures(String procedures) {
-		this.procedures = procedures;
+
+	public void setProcedure(String procedure) {
+		this.procedure = procedure;
 	}
+
+	public String getDiagnostic() {
+		return diagnostic;
+	}
+
+	public void setDiagnostic(String diagnostic) {
+		this.diagnostic = diagnostic;
+	}
+
 	public String getMedicines() {
 		return medicines;
 	}
+
 	public void setMedicines(String medicines) {
 		this.medicines = medicines;
 	}
 
-	public long getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
 
@@ -95,20 +127,27 @@ public class ClinicHistoryDto {
 	public String getVaccionationHistory() {
 		return vaccionationHistory;
 	}
+
 	public void setVaccionationHistory(String vaccionationHistory) {
 		this.vaccionationHistory = vaccionationHistory;
 	}
-	public String getAllergies() {
-		return allergies;
+
+	public String getDetails() {
+		return details;
 	}
-	public void setAllergies(String allergies) {
-		this.allergies = allergies;
+
+	public void setDetails(String details) {
+		this.details = details;
 	}
-	public String getDetailsProcedures() {
-		return detailsProcedures;
+
+	public String getAnulation() {
+		return anulation;
 	}
-	public void setDetailsProcedures(String detailsProcedures) {
-		this.detailsProcedures = detailsProcedures;
+
+	public void setAnulation(String anulation) {
+		this.anulation = anulation;
 	}
+	
+	
 
 }

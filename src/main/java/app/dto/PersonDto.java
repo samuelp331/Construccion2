@@ -8,16 +8,16 @@ public class PersonDto {
 	private long id;
 	private int age;
 	private int roleId;
-	private String fullName;
+	private String name;
 	private String username;
 	private String password;
-	
-	public PersonDto(long id, int age, int roleId, String fullName, String username, String password) {
+
+	public PersonDto(long id, int age, int roleId, String name, String username, String password) {
 		super();
 		this.id = id;
 		this.age = age;
 		this.roleId = roleId;
-		this.fullName = fullName;
+		this.name = name;
 		this.username = username;
 		this.password = password;
 	}
@@ -25,7 +25,7 @@ public class PersonDto {
 	public PersonDto(Person person) {
 		this.age = person.getAge();
 		this.roleId = person.getRoleId();
-		this.fullName = person.getFullName();
+		this.name = person.getName();
 		this.username = person.getUsername();
 		this.password = person.getPassword();
 	}
@@ -51,12 +51,15 @@ public class PersonDto {
 		this.roleId = roleId;
 	}
 
-	public String getFullName() {
-		return fullName;
+	
+	public String getName() {
+		return name;
 	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getUsername() {
 		return username;
 	}

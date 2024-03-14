@@ -3,20 +3,25 @@ package app.models;
 import java.sql.Date;
 
 public class Bill {
-	private int invoiceId;
+	private int id;
 	private int petId;
 	private long ownerId;
+	private int orderId;
 	private String productName;
-	private double price;
+	private double value;
 	private int amount;
 	private Date date;
 	
 	public Bill() {
 		this.date=new Date(System.currentTimeMillis());
 	}
-	
-	public long getInvoiceId() {
-		return invoiceId;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getPetId() {
@@ -27,10 +32,6 @@ public class Bill {
 		this.petId = petId;
 	}
 
-	public void setInvoiceId(int invoiceId) {
-		this.invoiceId = invoiceId;
-	}
-
 	public long getOwnerId() {
 		return ownerId;
 	}
@@ -39,29 +40,47 @@ public class Bill {
 		this.ownerId = ownerId;
 	}
 
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public double getPrice() {
-		return price;
+
+	public double getValue() {
+		return value;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+
+	public void setValue(double value) {
+		this.value = value;
 	}
+
 	public int getAmount() {
 		return amount;
 	}
+
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	
+
 
 }
