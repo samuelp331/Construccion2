@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import app.validators.PersonInputsValidator;
 import app.dto.PersonDto;
+import app.service.VendorService;
 
 public class VendorController {
 	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
@@ -15,6 +16,18 @@ public class VendorController {
 		System.out.println("ingrese el nombre completo");
 		String name = scanner.nextLine();
 		personInputValidator.fullNameValidator(name);
+		
+		System.out.println("ingrese el producto");
+		String nameProduct = scanner.nextLine();
+		personInputValidator.fullNameValidator(name);
+		
+	}
+	
+	private void generateBill() throws Exception {
+		System.out.println("ingrese el nombre completo");
+		String name = scanner.nextLine();
+		personInputValidator.fullNameValidator(name);
+		
 	}
 	
 	public void session() {
@@ -38,6 +51,10 @@ public class VendorController {
 			return true;
 		}
 		case "2": {
+			generateBill();
+			return true;
+		}
+		case "3": {
 			return false;
 		}
 		default :{
