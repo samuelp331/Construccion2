@@ -14,24 +14,30 @@ public class AdminController {
 	private static final String MENU = "ingrese\n1.Para crear usuario\n2.Para cerrar Sesion";
 	
 	private void createUser() throws Exception {
-		System.out.println("ingrese el nombre completo");
+		System.out.println("ingrese la edad");
 		int age = scanner.nextInt();
 		personInputValidator.ageValidator(age);
+		
 		System.out.println("ingrese el nombre completo");
 		String fullname = scanner.nextLine();
 		personInputValidator.fullNameValidator(fullname);
+		
 		System.out.println("ingrese la cedula del usuario");
-		int id = personInputValidator.idValidator(scanner.nextInt());
-		System.out.println("ingrese el rol completo");
+		long id = personInputValidator.idValidator(scanner.nextLong());
+		
+		System.out.println("ingrese el id del rol");
 		int role_id = scanner.nextInt();
-		personInputValidator.intValidator(role_id);
+		personInputValidator.intValidator(role_id);;
+		
 		System.out.println("ingrese nombre de usuario");
 		String username = scanner.nextLine();
 		personInputValidator.fullNameValidator(username);
+		
 		System.out.println("ingrese la contraseña");
 		String password = scanner.nextLine();
 		personInputValidator.fullNameValidator(password);
-		PersonDto personDto = new PersonDto(age, role_id, fullname, username, password);
+		
+		PersonDto personDto = new PersonDto(id, age, role_id, fullname, username, password);
 		System.out.println("se cumplieron todas las validaciones");
 		adminService.createUser(personDto);
 	}

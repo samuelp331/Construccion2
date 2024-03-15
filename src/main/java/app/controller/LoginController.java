@@ -13,6 +13,7 @@ public class LoginController{
 	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
 	private static AdminController adminController = new AdminController();
 	private static VendorController vendorController = new VendorController();
+	private static VeterinarianController veterinarianController = new VeterinarianController();
 	private static LoginService loginService = new AdminService();
 	
 	
@@ -29,9 +30,15 @@ public class LoginController{
 		loginService.logout();
 	}
 	private void loginRouter(PersonDto personDto) {
+		
 		if (personDto.getRoleId() == 01) {//hasta no asegurar el id del rol no se asigna
 			adminController.session();
+		}else if(personDto.getRoleId() == 02) {
+			vendorController.session();
+		}else if(personDto.getRoleId() == 03) {
+			veterinarianController.session();
 		}
+	
 	}
 	
 	

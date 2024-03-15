@@ -29,6 +29,12 @@ public class VendorController {
 		personInputValidator.fullNameValidator(name);
 		
 	}
+	private void searchOrder() throws Exception {
+		System.out.println("ingrese el nombre completo");
+		String name = scanner.nextLine();
+		personInputValidator.fullNameValidator(name);
+		
+	}
 	
 	public void session() {
 		boolean runApp = true;
@@ -46,21 +52,21 @@ public class VendorController {
 	
 	private boolean menu(String option) throws Exception{
 		switch (option) {
-		case "1":{
-			createSale();
-			return true;
-		}
-		case "2": {
-			generateBill();
-			return true;
-		}
-		case "3": {
-			return false;
-		}
-		default :{
-			System.out.println("ingrese una opcion valida");
-			return true;
-		}
+			case "1":{
+				createSale();
+				return true;
+			}
+			case "2": {
+				generateBill();
+				return true;
+			}
+			case "3": {
+				return false;
+			}
+			default :{
+				System.out.println("ingrese una opcion valida");
+				return true;
+			}
 		}
 	}
 }
