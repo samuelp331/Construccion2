@@ -21,6 +21,10 @@ public class PersonDto {
 		this.username = username;
 		this.password = password;
 	}
+	public PersonDto(String userName, String password) {
+		this.username = userName;
+		this.password = password;
+	}
 
 	public PersonDto(Person person) {
 		this.age = person.getAge();
