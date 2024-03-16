@@ -12,7 +12,6 @@ public class Pet {
 	private int ownerId;
 
 	
-	
 	public long getId() {
 		return id;
 	}

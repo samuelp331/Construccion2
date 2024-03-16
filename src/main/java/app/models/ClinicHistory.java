@@ -4,24 +4,49 @@ import java.sql.Date;
 
 public class ClinicHistory {
 	
+	private int id;
 	private Date registerDate;
 	private long veterinarianId;
-	private String reasonForConsultation;
+	private String reason;
 	private String symptoms;
-	private String procedures;
+	private String procedure;
+	private String diagnostic;
 	private String medicines;
+	private String dosis;
 	private int orderId;
 	private String vaccionationHistory;
-	private String allergies;
-	private String detailsProcedures;
+	private String details;
+	private String anulation;
 
 	public ClinicHistory() {
 		this.registerDate=new Date(System.currentTimeMillis());
 	}
 	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getDosis() {
+		return dosis;
+	}
+
+
+	public void setDosis(String dosis) {
+		this.dosis = dosis;
+	}
+
+
 	public Date getRegisterDate() {
 		return registerDate;
 	}
+
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
 	}
@@ -34,27 +59,42 @@ public class ClinicHistory {
 		this.veterinarianId = veterinarianId;
 	}
 
-	public String getReasonForConsultation() {
-		return reasonForConsultation;
+	public String getReason() {
+		return reason;
 	}
-	public void setReasonForConsultation(String reasonForConsultation) {
-		this.reasonForConsultation = reasonForConsultation;
+
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
+
 	public String getSymptoms() {
 		return symptoms;
 	}
+
 	public void setSymptoms(String symptoms) {
 		this.symptoms = symptoms;
 	}
-	public String getProcedures() {
-		return procedures;
+
+	public String getProcedure() {
+		return procedure;
 	}
-	public void setProcedures(String procedures) {
-		this.procedures = procedures;
+
+	public void setProcedure(String procedure) {
+		this.procedure = procedure;
 	}
+
+	public String getDiagnostic() {
+		return diagnostic;
+	}
+
+	public void setDiagnostic(String diagnostic) {
+		this.diagnostic = diagnostic;
+	}
+
 	public String getMedicines() {
 		return medicines;
 	}
+
 	public void setMedicines(String medicines) {
 		this.medicines = medicines;
 	}
@@ -70,21 +110,27 @@ public class ClinicHistory {
 	public String getVaccionationHistory() {
 		return vaccionationHistory;
 	}
+
 	public void setVaccionationHistory(String vaccionationHistory) {
 		this.vaccionationHistory = vaccionationHistory;
 	}
-	public String getAllergies() {
-		return allergies;
-	}
-	public void setAllergies(String allergies) {
-		this.allergies = allergies;
-	}
-	public String getDetailsProcedures() {
-		return detailsProcedures;
-	}
-	public void setDetailsProcedures(String detailsProcedures) {
-		this.detailsProcedures = detailsProcedures;
+
+	public String getDetails() {
+		return details;
 	}
 
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getAnulation() {
+		return anulation;
+	}
+
+	public void setAnulation(String anulation) {
+		this.anulation = anulation;
+	}
+	
+	
 
 }
