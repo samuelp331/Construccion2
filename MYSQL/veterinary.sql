@@ -23,20 +23,14 @@ use veterinary;
 -- Estructura de tabla para la tabla `bill`
 --
 
-CREATE TABLE `session`(
-`id` int NOT NULL,
-`rol_id` int NOT NULL,
-`username` varchar(55) NOT NULL
-);
-
 CREATE TABLE `bill` (
   `id` int NOT NULL,
   `pet_id` int NOT NULL,
-  `owner_id` bigint NOT NULL,
+  `owner_id` int NOT NULL,
   `order_id` int NOT NULL,
   `product_name` varchar(250) NOT NULL,
   `value` bigint NOT NULL,
-  `amount` int NOT NULL,
+  `quantity` int NOT NULL,
   `date` date NOT NULL
 ) ;
 -- --------------------------------------------------------
@@ -47,7 +41,7 @@ CREATE TABLE `bill` (
 
 CREATE TABLE `history` (
   `date` date NOT NULL,
-  `veterinarianId` INT NOT NULL,
+  `doctor` varchar(50) NOT NULL,
   `reason` varchar(250) NOT NULL,
   `symptoms` text NOT NULL,
   `diagnostic` text NOT NULL,
@@ -55,9 +49,9 @@ CREATE TABLE `history` (
   `medicine` text NOT NULL,
   `dosis` varchar(250) NOT NULL,
   `id_order` int NOT NULL,
-  `vaccination_history` text NOT NULL,
+  `vaccination_record` text NOT NULL,
   `detail` text NOT NULL,
-  `anulation` BOOLEAN NOT NULL
+  `cancellation` tinyint(1) NOT NULL
 ) ;
 
 -- --------------------------------------------------------
@@ -67,12 +61,10 @@ CREATE TABLE `history` (
 --
 
 CREATE TABLE `person` (
-  `id` bigint NOT NULL,
-  `age` int NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
-  `id_rol` int NOT NULL,
-  `username` varchar(55) NOT NULL,
-  `password` varchar(55) NOT NULL
+  `age` int NOT NULL,
+  `id_rol` int NOT NULL
 ) ;
 
 -- --------------------------------------------------------
@@ -101,11 +93,10 @@ CREATE TABLE `pet` (
 CREATE TABLE `pet_order` (
   `id` int NOT NULL,
   `pet_id` int NOT NULL,
-  `owner_id` bigint NOT NULL,
-  `veterinarian_id` int NOT NULL,
+  `owner_id` int NOT NULL,
+  `doctor_id` int NOT NULL,
   `medicine` text NOT NULL,
-  `date` date NOT NULL,
-  `is_canceled` boolean NOT NULL
+  `date` date NOT NULL
 );
 
 -- --------------------------------------------------------
@@ -123,11 +114,6 @@ CREATE TABLE `rol` (
 -- Índices para tablas volcadas
 --
 
---
--- Indices de la tabla `session`
---
-ALTER TABLE `session`
-  ADD PRIMARY KEY (`id`);
 --
 -- Indices de la tabla `bill`
 --
@@ -163,12 +149,6 @@ ALTER TABLE `rol`
 --
 
 --
--- AUTO_INCREMENT de la tabla `session`
---
-ALTER TABLE `session`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `bill`
 --
 ALTER TABLE `bill`
@@ -191,40 +171,5 @@ ALTER TABLE `pet_order`
 --
 ALTER TABLE `rol`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
- --
- --
- --
-ALTER TABLE `bill`
-  ADD CONSTRAINT `fk_rol_id` FOREIGN KEY (`rol_id`) REFERENCES `rol`(`id`);
-
- --
- --
- --
-ALTER TABLE `bill`
-  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
-  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
-
---
---
---
-ALTER TABLE `history`
-  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `pet_order`(`id`);
-
---
---
---
-ALTER TABLE `pet`
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`);
-
---
---
---
-ALTER TABLE `pet_order`
-  ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
-  ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
-  ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `person`(`id`);
-  
 COMMIT;
 

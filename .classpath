@@ -27,11 +27,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="MYSQL"/>
-<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-=======
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
->>>>>>> 34589e44d663cef840fd3e009021eee1aeb3f3e8
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>

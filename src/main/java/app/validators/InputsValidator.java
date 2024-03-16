@@ -7,28 +7,28 @@ public abstract class InputsValidator {
         }
     }
 
-    public int integerValidator(int number, String element) throws Exception {
-        //stringValidator(number, element);
+    public int integerValidator(String number, String element) throws Exception {
+        stringValidator(number, element);
         try {
-            return number ;/*Integer.parseInt(number);*/
+            return Integer.parseInt(number);
         } catch (Exception e) {
             throw new Exception(element + " no es un numero valido");
         }
     }
     
-    public long longValidator(long number, String element) throws Exception {
+    public long longValidator(String number, String element) throws Exception {
         longValidator(number, element);
         try {
-            return number; //Long.parseLong(number);
+            return Long.parseLong(number);
         } catch (Exception e) {
             throw new Exception(element + " no es un numero valido");
         }
     }
     
-    public double doubleValidator(long number, String element) throws Exception {
+    public double doubleValidator(String number, String element) throws Exception {
         longValidator(number, element);
         try {
-            return number;//Double.parseDouble(number);
+            return Double.parseDouble(number);
         } catch (Exception e) {
             throw new Exception(element + " no es un numero valido");
         }
