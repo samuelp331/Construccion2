@@ -104,7 +104,8 @@ CREATE TABLE `pet_order` (
   `owner_id` bigint NOT NULL,
   `veterinarian_id` int NOT NULL,
   `medicine` text NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `is_canceled` boolean NOT NULL
 );
 
 -- --------------------------------------------------------
