@@ -6,6 +6,7 @@ import app.models.ClinicHistory;
 
 public class ClinicHistoryDto {
 	
+	private int id;
 	private Date registerDate;
 	private long veterinarianId;
 	private String reason;
@@ -19,10 +20,11 @@ public class ClinicHistoryDto {
 	private String details;
 	private String anulation;
 
-	public ClinicHistoryDto(Date registerDate, long veterinarianId, String reason, String symptoms, String procedure,
+	public ClinicHistoryDto(int id,Date registerDate, long veterinarianId, String reason, String symptoms, String procedure,
 			String diagnostic, String medicines, String dosis, int orderId, String vaccionationHistory, String details,
 			String anulation) {
 		super();
+		this.id = id;
 		this.registerDate = registerDate;
 		this.veterinarianId = veterinarianId;
 		this.reason = reason;
@@ -38,6 +40,7 @@ public class ClinicHistoryDto {
 	}
 
 	public ClinicHistoryDto(ClinicHistory clinichistory){
+		this.id = clinichistory.getId();
 		this.registerDate = clinichistory.getRegisterDate();
 		this.veterinarianId = clinichistory.getVeterinarianId();
 		this.reason = clinichistory.getReason();
@@ -52,6 +55,15 @@ public class ClinicHistoryDto {
 		this.anulation = clinichistory.getAnulation();
 	}
 	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getDosis() {
 		return dosis;
 	}

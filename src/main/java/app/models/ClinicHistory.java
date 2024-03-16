@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ClinicHistory {
 	
+	private int id;
 	private Date registerDate;
 	private long veterinarianId;
 	private String reason;
@@ -21,6 +22,16 @@ public class ClinicHistory {
 		this.registerDate=new Date(System.currentTimeMillis());
 	}
 	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 	public String getDosis() {
 		return dosis;

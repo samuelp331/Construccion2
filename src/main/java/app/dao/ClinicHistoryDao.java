@@ -63,7 +63,7 @@ public class ClinicHistoryDao implements IClinicHistory{
 	}
 
 	@Override
-	public String consultMedicalHistoryById(int id) throws Exception {
+	public String getHistoryClinicDetails(int id) throws Exception {
 		String query = "SELECT * FROM history WHERE id = ?";
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -77,6 +77,18 @@ public class ClinicHistoryDao implements IClinicHistory{
 	    sb.append("Razón: ").append(resultSet.getString("reason")).append("\n");
 	    
 	    return sb.toString();
+	}
+
+	@Override
+	public boolean existClinicHistory(int id) throws Exception {
+		String query = "SELECT 1 FROM history WHERE id = ?";
+		PreparedStatement preparedStatement = connection.prepareStatement(query);
+		preparedStatement.setInt(1, id);
+		ResultSet resulSet = preparedStatement.executeQuery();
+		boolean clinicHistoryExists = resulSet.next();
+		resulSet.close();
+		preparedStatement.close();
+		return clinicHistoryExists;
 	}
 	        
 	
