@@ -17,8 +17,8 @@ public class ClinicHistoryInputsValidator extends InputsValidator {
     public void medicinesValidator(String medicines) throws Exception {
         super.stringValidator(medicines, "Medicinas");
     }
-    public long idOrderValidator(String idOrder) throws Exception {
-        return super.longValidator(idOrder, " dueño de mascota");
+    public long idOrderValidator(int idOrder) throws Exception {
+        return super.integerValidator(idOrder, " dueño de mascota");
     }
     public void vaccionationHistoryValidator(String vaccionationHistory) throws Exception {
         super.stringValidator(vaccionationHistory, " procedimiento");

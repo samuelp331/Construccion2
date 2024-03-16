@@ -29,7 +29,10 @@ public class PersonDto {
 		this.username = person.getUsername();
 		this.password = person.getPassword();
 	}
-	
+	public PersonDto(String userName, String password) {
+		this.username = userName;
+		this.password = password;
+	}
 	public long getId() {
 		return id;
 	}

@@ -2,20 +2,18 @@ package app.validators;
 
 public class BillInputsValidator extends InputsValidator {
 	
-	public long invoiceIdValidator(String invoiceId) throws Exception {
-        return super.longValidator(invoiceId, "id de usuario");
+
+	public void PetValidator(String PetName) throws Exception {
+        super.stringValidator(PetName, "nombre  de mascota");
     }
-	public long idPetValidator(String idPet) throws Exception {
-        return super.longValidator(idPet, " id de mascota");
-    }
-	public long idOwnerValidator(String idOwner) throws Exception {
-        return super.longValidator(idOwner, " dueño de mascota");
+	public void OwnerValidator(String OwnerName) throws Exception {
+        super.stringValidator(OwnerName, " dueño de mascota");
     }
 	public void productNameValidator(String productName) throws Exception {
-        super.stringValidator(productName, " Nombre de usuario incorrecto");
+        super.stringValidator(productName, "Nombre del producto");
     }
-	public double priceValidator(String price) throws Exception {
-        return super.doubleValidator(price, " id de mascota");
+	public double priceValidator(Long price) throws Exception {
+        return super.doubleValidator(price, "precio");
     }
 	
 }

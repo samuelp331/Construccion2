@@ -2,17 +2,17 @@ package app.validators;
 
 public class OrderInputsValidator extends InputsValidator{
 	
-	public long orderIdValidator(String orderId) throws Exception {
-        return super.longValidator(orderId, " id de orden");
+	public int orderIdValidator(int orderId) throws Exception {
+        return super.integerValidator(orderId, " id de orden");
     }
-	public long idPetValidator(String idPet) throws Exception {
-        return super.longValidator(idPet, " identificacion de mascota");
+	public void PetValidator(String PetName) throws Exception {
+        super.stringValidator(PetName, "nombre  de mascota");
     }
-	public long idOwnerValidator(String idOwner) throws Exception {
+	public long idOwnerValidator(Long idOwner) throws Exception {
         return super.longValidator(idOwner, " identificacion del dueño");
     }
-	public void personValidator(String person) throws Exception {
-        super.stringValidator(person, " Nombre de usuario incorrecto");
+	public long personValidator(Long person) throws Exception {
+		   return super.longValidator(person, " Identificacion del veterinario");
     }
 	public void nameMedicationsValidator(String nameMedications) throws Exception {
         super.stringValidator(nameMedications, " Nombre de medicamentos");
