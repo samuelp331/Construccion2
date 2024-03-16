@@ -5,10 +5,9 @@ public class Person {
 	private long id;
 	private int age;
 	private int roleId;
-	private String fullName;
+	private String name;
 	private String username;
 	private String password;
-	
 	public long getId() {
 		return id;
 	}
@@ -27,11 +26,11 @@ public class Person {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	public String getFullName() {
-		return fullName;
+	public String getName() {
+		return name;
 	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getUsername() {
 		return username;
@@ -45,4 +44,6 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 }
