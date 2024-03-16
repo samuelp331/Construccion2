@@ -10,7 +10,7 @@ public class VendorController {
 	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
 	private static Scanner scanner = new Scanner(System.in);
 	private static VendorService vendorService = new VendorService();
-	private static final String MENU = "ingrese\n1.Para generar venta\n2.Para cerrar Sesion";
+	private static final String MENU = "ingrese\n1.Para generar venta\n2.Generar factura\n3.Buscar orden\n4.Para cerrar Sesion";
 	
 	private void createSale() throws Exception {
 		System.out.println("ingrese el nombre completo");
@@ -61,6 +61,10 @@ public class VendorController {
 				return true;
 			}
 			case "3": {
+				searchOrder();
+				return true;
+			}
+			case "4": {
 				return false;
 			}
 			default :{

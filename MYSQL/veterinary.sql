@@ -23,6 +23,12 @@ use veterinary;
 -- Estructura de tabla para la tabla `bill`
 --
 
+CREATE TABLE `session`(
+`id` int NOT NULL,
+`rol_id` int NOT NULL,
+`username` varchar(55) NOT NULL
+);
+
 CREATE TABLE `bill` (
   `id` int NOT NULL,
   `pet_id` int NOT NULL,
@@ -117,6 +123,11 @@ CREATE TABLE `rol` (
 --
 
 --
+-- Indices de la tabla `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`id`);
+--
 -- Indices de la tabla `bill`
 --
 ALTER TABLE `bill`
@@ -151,6 +162,12 @@ ALTER TABLE `rol`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `session`
+--
+ALTER TABLE `session`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `bill`
 --
 ALTER TABLE `bill`
@@ -174,6 +191,11 @@ ALTER TABLE `pet_order`
 ALTER TABLE `rol`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+ --
+ --
+ --
+ALTER TABLE `bill`
+  ADD CONSTRAINT `fk_rol_id` FOREIGN KEY (`rol_id`) REFERENCES `rol`(`id`);
 
  --
  --

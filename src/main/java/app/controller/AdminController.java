@@ -5,18 +5,17 @@ import java.util.Scanner;
 import app.validators.PersonInputsValidator;
 import app.dto.PersonDto;
 import app.service.AdminService;
-import app.service.VeterinaryService;
 
 public class AdminController {
 	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
 	private static Scanner scanner = new Scanner(System.in);
-	private static AdminService adminService = new VeterinaryService();
+	private static AdminService adminService = new AdminService();
 	private static final String MENU = "ingrese\n1.Para crear usuario\n2.Para cerrar Sesion";
 	
 	private void createUser() throws Exception {
 		System.out.println("ingrese la edad");
 		int age = scanner.nextInt();
-		personInputValidator.ageValidator(age);
+		personInputValidator.intValidator(age);
 		
 		System.out.println("ingrese el nombre completo");
 		String fullname = scanner.nextLine();

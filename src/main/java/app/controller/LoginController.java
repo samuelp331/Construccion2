@@ -5,7 +5,7 @@ import java.util.Scanner;
 import app.validators.PersonInputsValidator;
 import app.dto.PersonDto;
 import app.service.AdminService;
-import app.service.LoginService;
+import app.service.ILoginService;
 
 public class LoginController{
 	
@@ -14,7 +14,7 @@ public class LoginController{
 	private static AdminController adminController = new AdminController();
 	private static VendorController vendorController = new VendorController();
 	private static VeterinarianController veterinarianController = new VeterinarianController();
-	private static LoginService loginService = new AdminService();
+	private static ILoginService loginService = new AdminService();
 	
 	
 	public void login() throws Exception {
@@ -31,11 +31,11 @@ public class LoginController{
 	}
 	private void loginRouter(PersonDto personDto) {
 		
-		if (personDto.getRoleId() == 01) {//hasta no asegurar el id del rol no se asigna
+		if (personDto.getRoleId() == 1) {//hasta no asegurar el id del rol no se asigna
 			adminController.session();
-		}else if(personDto.getRoleId() == 02) {
+		}else if(personDto.getRoleId() == 2) {
 			vendorController.session();
-		}else if(personDto.getRoleId() == 03) {
+		}else if(personDto.getRoleId() == 3) {
 			veterinarianController.session();
 		}
 	

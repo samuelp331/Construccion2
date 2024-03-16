@@ -23,7 +23,7 @@ public class VendorService implements IVendorService, LoginService{
 
 	@Override
 	public void setSesionID(long sesionId) {
-		sessionId = sesionId;
+		sessionId = sesionI pulld;
 	}
 
 	@Override
@@ -31,5 +31,11 @@ public class VendorService implements IVendorService, LoginService{
 		LoginDao loginDao = new LoginDaoImp();
 		loginDao.logout(sessionId);
 		setSesionID(0);
+	}
+
+	@Override
+	public void login(PersonDto personDto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }

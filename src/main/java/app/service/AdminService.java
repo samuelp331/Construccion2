@@ -4,10 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import app.dto.PersonDto;
+import app.dto.SessionDto;
 import app.dao.PersonDao;
+import app.dao.LoginDao;
+import app.dao.ILoginDao;
 import app.dao.PersonDaoImp;
 
-public class AdminService implements IAdminService,LoginService{
+public class AdminService implements IAdminService,ILoginService{
 	List<Integer> roles = Arrays.asList(01,02,03,04);
 	private static long sessionId = 0L;
 
@@ -44,7 +47,7 @@ public class AdminService implements IAdminService,LoginService{
 			throw new Exception("usuario o contraseña incorrectos");
 		}
 		personDto.setRoleId(personDtoValidate.getRoleId());
-		LoginDao loginDao = new LoginDaoImp();
+		ILoginDao loginDao = new LoginDao();
 		SessionDto sesionDto = loginDao.login(personDtoValidate);
 		setSesionID(sesionDto.getId());
 		System.out.println("se inicia la sesion " + sessionId);
@@ -52,7 +55,7 @@ public class AdminService implements IAdminService,LoginService{
 
 	@Override
 	public void logout() throws Exception {
-		LoginDao loginDao = new LoginDaoImp();
+		ILoginDao loginDao = new LoginDao();
 		loginDao.logout(sessionId);
 		setSesionID(0);
 	}
