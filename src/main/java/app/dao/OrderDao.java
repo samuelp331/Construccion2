@@ -25,17 +25,14 @@ public class OrderDao implements IOrderDao {
 		preparedStatement.setDate(i++, orderdto.getGenerationDate());
 		preparedStatement.setBoolean(i++, orderdto.getIs_canceled());
 		preparedStatement.execute();
-		preparedStatement.close();
+
 		
 		ResultSet resultSet = preparedStatement.getGeneratedKeys();
 	    int orderId = -1; 
 	    if (resultSet.next()) {
 	        orderId = resultSet.getInt(1);
 	    }
-
-	    resultSet.close();
-	    preparedStatement.close();
-
+		preparedStatement.close();
 	    return orderId;
 	}
 
