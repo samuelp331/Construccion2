@@ -14,9 +14,8 @@ public class OrderDto {
 	private Date generationDate;
 	private boolean is_canceled;
 
-	public OrderDto(int id, int petId, long veterinarianID, long ownerId, String medicine, boolean is_canceled) {
+	public OrderDto(int petId, long veterinarianID, long ownerId, String medicine, boolean is_canceled) {
 		super();
-		this.id = id;
 		this.petId = petId;
 		this.veterinarianID = veterinarianID;
 		this.ownerId = ownerId;

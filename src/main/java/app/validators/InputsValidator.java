@@ -25,8 +25,7 @@ public abstract class InputsValidator {
         }
     }
     
-    public double doubleValidator(long number, String element) throws Exception {
-        longValidator(number, element);
+    public double doubleValidator(double number, String element) throws Exception {
         try {
             return number;//Double.parseDouble(number);
         } catch (Exception e) {

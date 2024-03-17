@@ -47,11 +47,12 @@ public class VeterinarianService implements IClinicHistoryService, IPetService, 
 	}
 
 	@Override
-	public void createOrder(OrderDto orderdto) throws Exception {
+	public int createOrder(OrderDto orderdto) throws Exception {
 		this.validateSessionAndUser();
 		OrderDao orderDao = new OrderDao();
-		orderDao.createOrder(orderdto);
+		int orderId = orderDao.createOrder(orderdto);
 		System.out.println("se ha creado la orden");
+		return orderId;
 	}
 
 	@Override
@@ -116,6 +117,13 @@ public class VeterinarianService implements IClinicHistoryService, IPetService, 
 		this.validateSessionAndUser();
 		ClinicHistoryDao clinicHistoryDao = new ClinicHistoryDao();
 		return clinicHistoryDao.getHistoryClinicDetails(id);
+	}
+
+	@Override
+	public String seeOrder(int id) throws Exception {
+		this.validateSessionAndUser();
+		OrderDao orderDao = new OrderDao();
+		return orderDao.seeOrder(id);
 	}
 
 }

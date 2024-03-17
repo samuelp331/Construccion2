@@ -14,9 +14,8 @@ public class BillDto {
 	private int amount;
 	private Date date;
 
-	public BillDto(int id, int petId, long ownerId, int orderId, String productName, double value, int amount) {
+	public BillDto(int petId, long ownerId, int orderId, String productName, double value, int amount) {
 		super();
-		this.id = id;
 		this.petId = petId;
 		this.ownerId = ownerId;
 		this.orderId = orderId;

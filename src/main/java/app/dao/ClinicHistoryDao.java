@@ -31,7 +31,7 @@ public class ClinicHistoryDao implements IClinicHistory{
 		preparedStatement.setInt(i++, clinichistorydto.getOrderId());
 		preparedStatement.setString(i++, clinichistorydto.getVaccionationHistory());
 		preparedStatement.setString(i++, clinichistorydto.getDetails());
-		preparedStatement.setString(i++, clinichistorydto.getAnulation());
+		preparedStatement.setBoolean(i++, clinichistorydto.getAnulation());
 		preparedStatement.execute();
 		preparedStatement.close();
 	}
@@ -57,7 +57,7 @@ public class ClinicHistoryDao implements IClinicHistory{
 			preparedStatement.setInt(i++, clinichistorydto.getOrderId());
 			preparedStatement.setString(i++, clinichistorydto.getVaccionationHistory());
 			preparedStatement.setString(i++, clinichistorydto.getDetails());
-			preparedStatement.setString(i++, clinichistorydto.getAnulation());
+			preparedStatement.setBoolean(i++, clinichistorydto.getAnulation());
 	        preparedStatement.executeUpdate();
 	        preparedStatement.close();
 	}

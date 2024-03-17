@@ -5,8 +5,8 @@ public class OrderInputsValidator extends InputsValidator{
 	public int orderIdValidator(int orderId) throws Exception {
         return super.integerValidator(orderId, " id de orden");
     }
-	public void PetValidator(String PetName) throws Exception {
-        super.stringValidator(PetName, "nombre  de mascota");
+	public void PetValidator(int PetName) throws Exception {
+        super.integerValidator(PetName, "id  de mascota");
     }
 	public long idOwnerValidator(Long idOwner) throws Exception {
         return super.longValidator(idOwner, " identificacion del dueño");

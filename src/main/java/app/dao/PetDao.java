@@ -3,11 +3,8 @@ package app.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import app.config.MYSQLConnection;
-import app.dto.PersonDto;
 import app.dto.PetDto;
-import app.models.Person;
 import app.models.Pet;
 
 public class PetDao implements IPetDao{
@@ -15,13 +12,12 @@ public class PetDao implements IPetDao{
 	public Connection connection = MYSQLConnection.getConnection();	
 	@Override
 	public void createPet(PetDto petDto) throws Exception {
-		String query = "INSERT INTO pet(id, name,owner_id,age,species,breed,caracteristics,weight) VALUES (?,?,?,?,?,?,?)";
+		String query = "INSERT INTO pet(name,owner_id,age,species,breed,caracteristics,weight) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
 		int i = 1;
-		preparedStatement.setLong(i++, petDto.getId());
 		preparedStatement.setString(i++, petDto.getName());
 		preparedStatement.setLong(i++, petDto.getOwnerId());
-		preparedStatement.setLong(i++, petDto.getAge());
+		preparedStatement.setInt(i++, petDto.getAge());
 		preparedStatement.setString(i++, petDto.getSpecies());
 		preparedStatement.setString(i++, petDto.getBreed());
 		preparedStatement.setString(i++, petDto.getCharacteristics());
@@ -39,7 +35,6 @@ public class PetDao implements IPetDao{
 		ResultSet resulSet = preparedStatement.executeQuery();
 		if(resulSet.next()) {
 			Pet pet = new Pet();
-			pet.setId(resulSet.getLong("id"));
 			pet.setName(resulSet.getString("name"));			
 			pet.setOwnerId(resulSet.getInt("owner_id"));
 			pet.setAge(resulSet.getInt("age"));
@@ -51,8 +46,6 @@ public class PetDao implements IPetDao{
 			preparedStatement.close();
 			return new PetDto(pet);
 		}
-		resulSet.close();
-		preparedStatement.close();
 		return null;
 	}
 
@@ -76,7 +69,7 @@ public class PetDao implements IPetDao{
 		ResultSet resulSet = preparedStatement.executeQuery();
 		if(resulSet.next()) {
 			Pet pet = new Pet();
-			pet.setId(resulSet.getLong("id"));
+			pet.setId(resulSet.getInt("id"));
 			pet.setName(resulSet.getString("name"));			
 			pet.setOwnerId(resulSet.getInt("owner_id"));
 			pet.setAge(resulSet.getInt("age"));

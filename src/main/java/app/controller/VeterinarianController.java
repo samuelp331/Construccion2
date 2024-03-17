@@ -1,53 +1,158 @@
 package app.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import app.dto.ClinicHistoryDto;
+import app.dto.OrderDto;
+import app.dto.PetDto;
 import app.service.VeterinarianService;
+import app.validators.ClinicHistoryInputsValidator;
+import app.validators.OrderInputsValidator;
 import app.validators.PersonInputsValidator;
+import app.validators.PetInputsValidator;
 
 public class VeterinarianController {
 	
-	private static PersonInputsValidator personInputValidator = new PersonInputsValidator();
+	private static ClinicHistoryInputsValidator clinicHistoryInputsValidator = new ClinicHistoryInputsValidator();
+	private static OrderInputsValidator orderInputsValidator = new OrderInputsValidator();
+	private static PetInputsValidator petInputsValidator = new PetInputsValidator();
 	private static Scanner scanner = new Scanner(System.in);
-	private static VeterinarianService veterinaianService = new VeterinarianService();
-	private static final String MENU = "ingrese\n1.Para registrar una mascota\n2.Para registrar una historia clinica\n3.Para consultar una historia clinica\n4.Para generar una orden\n5.Para anular una orden\n6.Para cerrar sesion";
+	private static VeterinarianService veterinarianService = new VeterinarianService();
+	private static final String MENU = "ingrese\n1.Para registrar una mascota\n2.Para registrar una historia clinica\n3.Para consultar una historia clinica\n4.Para anular una orden\n5.Para cerrar sesion";
 	
-	
-	private void generateOrder() throws Exception {
-		System.out.println("ingrese el nombre de la mascota");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
-		
+
+	private boolean validateProcedure(String optionProcedure) throws Exception {
+		if(optionProcedure == "vacunacion" || optionProcedure  == "vaccination") {
+			return true;
+		}
+		return false;
 	}
 	private void generateHistory() throws Exception {
-		System.out.println("ingrese el nombre de la mascota");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
 		
+		System.out.println("Ingrese el id del veterinario");
+		long veterinarianId = scanner.nextInt();
+		clinicHistoryInputsValidator.veterinarianValidator(veterinarianId);
+		
+		System.out.println("Ingrese 1.para recetar medicamentos, 2.no recetar medicamentos");
+		int optionMedication = scanner.nextInt();
+		clinicHistoryInputsValidator.validatePrescribeMedications(optionMedication);
+		
+		String medications = null;
+		String dosis = null;
+		Integer orderId = null;
+		
+		if(optionMedication == 1) {
+			System.out.println("Ingrese el nombre del medicamento/s");
+			medications = scanner.nextLine();
+			clinicHistoryInputsValidator.medicinesValidator(medications);
+			
+			System.out.println("Ingrese la dosis");
+			dosis = scanner.nextLine();
+			clinicHistoryInputsValidator.medicinesValidator(dosis);
+			
+			System.out.println("Ingrese el id de la mascota");
+			int petId = scanner.nextInt();
+			orderInputsValidator.PetValidator(petId);
+			
+			System.out.println("Ingrese el id del dueño");
+			Long ownerId = scanner.nextLong();
+			orderInputsValidator.idOwnerValidator(ownerId);		
+			
+			String dosisMedications = "medications: " + medications + "dosis:"+ dosis;
+			
+			OrderDto orderDto = new OrderDto(petId,veterinarianId,ownerId,dosisMedications,false);	
+			orderId = veterinarianService.createOrder(orderDto);
+		}
+		
+		System.out.println("Ingrese el tipo de procedimiento");
+		String optionProcedure = scanner.nextLine();
+		clinicHistoryInputsValidator.proceduresValidator(optionProcedure);
+		
+		String vaccionationHistory = null;
+		boolean procedure = this.validateProcedure(optionProcedure);
+		if(procedure) {
+			System.out.println("Ingrese la historia de vacunacion");
+			vaccionationHistory = scanner.nextLine();
+			clinicHistoryInputsValidator.vaccionationHistoryValidator(vaccionationHistory);
+		}
+	
+		System.out.println("Ingrese la razon de consulta");
+		String reason = scanner.nextLine();
+		clinicHistoryInputsValidator.reasonForConsultationValidator(reason);
+
+		System.out.println("Ingrese sintomas");
+		String symptoms = scanner.nextLine();
+		clinicHistoryInputsValidator.symptomsValidator(symptoms);
+		
+		System.out.println("Ingrese diagnostico");
+		String diagnostic = scanner.nextLine();
+		clinicHistoryInputsValidator.symptomsValidator(diagnostic);
+		
+		System.out.println("medicamentos a los que presenta alergia");
+		String allergies = scanner.nextLine();
+		clinicHistoryInputsValidator.allergiesValidator(allergies);
+		
+		System.out.println("detalles del procedimiento");
+		String detailsProcedures = scanner.nextLine();
+		clinicHistoryInputsValidator.detailsProceduresValidator(detailsProcedures);
+		
+		ClinicHistoryDto clinicHistoryDto = new ClinicHistoryDto(veterinarianId,reason, symptoms,optionProcedure,diagnostic,medications, dosis,orderId, vaccionationHistory, detailsProcedures,false);
+		veterinarianService.CreateClinicHistory(clinicHistoryDto);
+	
 	}
 	private void searchHistory() throws Exception {
-		System.out.println("ingrese el id de la historia");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
+		System.out.println("Ingrese 1.para recetar medicamentos, 2.no recetar medicamentos");
+		int optionMedication = scanner.nextInt();
+		clinicHistoryInputsValidator.validatePrescribeMedications(optionMedication);
+		
 		
 	}
 	private void searchOrder() throws Exception {
-		System.out.println("ingrese el id de la orden");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
 		
+		System.out.println("Ingrese el id de la orden");
+		int orderId = scanner.nextInt();
+		orderInputsValidator.orderIdValidator(orderId);		
+		System.out.println(veterinarianService.seeOrder(orderId));
 	}
 	private void createPet() throws Exception {
 		System.out.println("ingrese el nombre de la mascota");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
+		String petName = scanner.nextLine();
+		petInputsValidator.nameValidator(petName);
+
+		System.out.println("ingrese la edad de la mascota");
+		int age = scanner.nextInt();
+		petInputsValidator.ageValidator(age);
 		
+		System.out.println("ingrese la especie de la mascota");
+		String species = scanner.nextLine();
+		petInputsValidator.speciesValidator(species);
+		
+		System.out.println("ingrese  de raza");
+		String breed = scanner.nextLine();
+		petInputsValidator.raceValidator(breed);
+		
+		System.out.println("ingrese  la caracteristica");
+		String characteristics = scanner.nextLine();
+		petInputsValidator.characteristicsValidator(characteristics);
+		
+		System.out.println("ingrese  el peso");
+		int weight = scanner.nextInt();
+		petInputsValidator.weightValidator(weight);
+		
+		System.out.println("Ingrese el id del dueño");
+		Long ownerId = scanner.nextLong();
+		petInputsValidator.idOwnerValidator(ownerId);	
+		
+		PetDto petDto = new PetDto(petName,age,species,breed,characteristics,weight,ownerId);
+		veterinarianService.createPet(petDto);
 	}
 	private void deleteOrder() throws Exception {
 		System.out.println("ingrese el id de la orden");
-		String name = scanner.nextLine();
-		personInputValidator.fullNameValidator(name);
-		
+		int petId = scanner.nextInt();
+		orderInputsValidator.orderIdValidator(petId);		
+		veterinarianService.cancelOrder(petId);
 	}
 	
 	public void session() {
@@ -79,18 +184,14 @@ public class VeterinarianController {
 				return true;
 			}
 			case "4": {
-				generateOrder();
-				return true;
-			}
-			case "5": {
 				searchOrder();
 				return true;
 			}
-			case "6": {
+			case "5": {
 				deleteOrder();
 				return true;
 			}
-			case "7": {
+			case "6": {
 				return false;
 			}
 			default :{

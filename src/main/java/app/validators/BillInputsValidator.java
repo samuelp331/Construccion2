@@ -12,8 +12,11 @@ public class BillInputsValidator extends InputsValidator {
 	public void productNameValidator(String productName) throws Exception {
         super.stringValidator(productName, "Nombre del producto");
     }
-	public double priceValidator(Long price) throws Exception {
+	public double priceValidator(double price) throws Exception {
         return super.doubleValidator(price, "precio");
+    }
+	public int amountValidator(int amount) throws Exception {
+        return super.integerValidator(amount, "cantidad");
     }
 	
 }

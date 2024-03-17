@@ -13,10 +13,9 @@ public class PetDto {
 	private long ownerId;
 	
 
-	public PetDto(int id, String name, int age, String species, String breed, String characteristics, double weight,
+	public PetDto(String name, int age, String species, String breed, String characteristics, double weight,
 			long ownerId) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.species = species;
