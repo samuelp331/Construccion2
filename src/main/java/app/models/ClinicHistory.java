@@ -16,12 +16,7 @@ public class ClinicHistory {
 	private int orderId;
 	private String vaccionationHistory;
 	private String details;
-	private boolean anulation;
-
-	public ClinicHistory() {
-		this.registerDate=new Date(System.currentTimeMillis());
-	}
-	
+	private int anulation;
 
 	public int getId() {
 		return id;
@@ -123,11 +118,11 @@ public class ClinicHistory {
 		this.details = details;
 	}
 
-	public boolean getAnulation() {
+	public int getAnulation() {
 		return anulation;
 	}
 
-	public void setAnulation(boolean anulation) {
+	public void setAnulation(int anulation) {
 		this.anulation = anulation;
 	}
 	

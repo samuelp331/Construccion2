@@ -98,7 +98,7 @@ public class VeterinarianController {
 		String detailsProcedures = scanner.nextLine();
 		clinicHistoryInputsValidator.detailsProceduresValidator(detailsProcedures);
 		
-		ClinicHistoryDto clinicHistoryDto = new ClinicHistoryDto(veterinarianId,reason, symptoms,optionProcedure,diagnostic,medications, dosis,orderId, vaccionationHistory, detailsProcedures,false);
+		ClinicHistoryDto clinicHistoryDto = new ClinicHistoryDto(veterinarianId,reason, symptoms,optionProcedure,diagnostic,medications, dosis,orderId, vaccionationHistory, detailsProcedures,0);
 		veterinarianService.CreateClinicHistory(clinicHistoryDto);
 	
 	}

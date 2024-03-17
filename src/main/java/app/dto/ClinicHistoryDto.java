@@ -18,11 +18,11 @@ public class ClinicHistoryDto {
 	private int orderId;
 	private String vaccionationHistory;
 	private String details;
-	private boolean anulation;
+	private int anulation;
 
 	public ClinicHistoryDto(long veterinarianId, String reason, String symptoms, String procedure,
 			String diagnostic, String medicines, String dosis, int orderId, String vaccionationHistory, String details,
-			boolean anulation) {
+			int anulation) {
 		super();
 		this.registerDate = new Date(System.currentTimeMillis());
 		this.veterinarianId = veterinarianId;
@@ -151,11 +151,11 @@ public class ClinicHistoryDto {
 		this.details = details;
 	}
 
-	public boolean getAnulation() {
+	public int getAnulation() {
 		return anulation;
 	}
 
-	public void setAnulation(boolean anulation) {
+	public void setAnulation(int anulation) {
 		this.anulation = anulation;
 	}
 	
