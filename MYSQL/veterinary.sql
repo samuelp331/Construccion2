@@ -46,6 +46,7 @@ CREATE TABLE `bill` (
 --
 
 CREATE TABLE `history` (
+  `id` int NOT NULL,
   `date` date NOT NULL,
   `veterinarianId` INT NOT NULL,
   `reason` varchar(250) NOT NULL,
@@ -122,6 +123,12 @@ CREATE TABLE `rol` (
 -- Índices para tablas volcadas
 --
 
+
+--
+-- Indices de la tabla `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`id`);
 --
 -- Indices de la tabla `session`
 --
@@ -155,6 +162,12 @@ ALTER TABLE `pet_order`
 -- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
+  ADD PRIMARY KEY (`id`);
+  
+  --
+-- Indices de la tabla `history`
+--
+ALTER TABLE `history`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -191,6 +204,12 @@ ALTER TABLE `pet_order`
 ALTER TABLE `rol`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT de la tabla `history`
+--
+ALTER TABLE `history`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
  --
  --
  --
@@ -224,6 +243,8 @@ ALTER TABLE `pet_order`
   ADD CONSTRAINT `fk_pet_id` FOREIGN KEY (`pet_id`) REFERENCES `pet`(`id`),
   ADD CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `person`(`id`),
   ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `person`(`id`);
+  
+INSERT INTO `person` (`id`,`age`,`name`,`id_rol`,`username`,`password`) VALUES ("100000","20","Pacho","01","pacho331","1234");
   
 COMMIT;
 
