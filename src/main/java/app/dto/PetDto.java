@@ -3,19 +3,18 @@ import app.models.Pet;
 
 public class PetDto {
 	
-	private long id;
+	private int id;
 	private String name;
 	private int age;
 	private String species;
 	private String breed;
 	private String characteristics;
 	private double weight;
-	private int ownerId;
-
+	private long ownerId;
 	
 
-	public PetDto(long id, String name, int age, String species, String breed, String characteristics, double weight,
-			int ownerId) {
+	public PetDto(int id, String name, int age, String species, String breed, String characteristics, double weight,
+			long ownerId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -42,15 +41,15 @@ public class PetDto {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getOwnerId() {
+	public long getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int ownerId) {
+	public void setOwnerId(long ownerId) {
 		this.ownerId = ownerId;
 	}
 

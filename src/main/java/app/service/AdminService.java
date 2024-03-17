@@ -5,10 +5,10 @@ import java.util.List;
 
 import app.dto.PersonDto;
 import app.dto.SessionDto;
-import app.dao.PersonDao;
+import app.dao.IPersonDao;
 import app.dao.LoginDao;
 import app.dao.ILoginDao;
-import app.dao.PersonDaoImp;
+import app.dao.PersonDao;
 
 public class AdminService implements IAdminService,ILoginService{
 	List<Integer> roles = Arrays.asList(01,02,03,04);
@@ -19,8 +19,8 @@ public class AdminService implements IAdminService,ILoginService{
 		if (!roles.contains(personDto.getRoleId())) {
 			throw new Exception("el rol no es valido");
 		}
-		PersonDao personDao = new PersonDaoImp();
-		if (personDao.findUserExist(personDto)) {
+		IPersonDao personDao = new PersonDao();
+		if (personDao.findUserExistById(personDto.getId())) {
 			throw new Exception("ya existe un usuario con esa cedula");
 		}
 		if (personDao.existUserByUserName(personDto)) {
@@ -38,7 +38,7 @@ public class AdminService implements IAdminService,ILoginService{
 
 	@Override
 	public void login(PersonDto personDto) throws Exception {
-		PersonDao personDao = new PersonDaoImp();
+		IPersonDao personDao = new PersonDao();
 		PersonDto personDtoValidate = personDao.findUserByUserName(personDto);
 		if (personDtoValidate == null) {
 			throw new Exception("usuario no valido");

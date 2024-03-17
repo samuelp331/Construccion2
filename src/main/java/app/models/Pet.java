@@ -9,7 +9,7 @@ public class Pet {
 	private String breed;
 	private String characteristics;
 	private double weight;
-	private int ownerId;
+	private long ownerId;
 
 	
 	public long getId() {
@@ -71,11 +71,11 @@ public class Pet {
 		this.weight = weight;
 	}
 
-	public int getOwnerId() {
+	public long getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int ownerId) {
+	public void setOwnerId(long ownerId) {
 		this.ownerId = ownerId;
 	}
 	
